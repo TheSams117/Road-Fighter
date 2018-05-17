@@ -29,6 +29,9 @@ public class PanelListaJugadores extends JPanel{
 		listaJugadores.setBackground(Color.BLACK);
 		listaJugadores.setForeground(Color.WHITE);
 		listaJugadores.setBorder(null);
+		for (int i = 0; i < 50; i++) {
+			modeloLista.addElement("Sergio");
+		}
 		scroll.setBorder(null);
 	}
 	
