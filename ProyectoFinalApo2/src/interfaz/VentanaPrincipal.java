@@ -63,4 +63,20 @@ public class VentanaPrincipal extends JFrame {
 		
 	}
 
+
+
+
+
+
+
+
+
+
+	public void cargarPartida() {
+		VentanaCargarPartida ventana= new VentanaCargarPartida(this);
+		ventana.setVisible(true);
+		this.setVisible(false);
+		
+	}
+
 }

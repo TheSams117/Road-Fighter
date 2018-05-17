@@ -32,26 +32,24 @@ public class PanelBotonesAtras extends JPanel implements ActionListener{
 		butSiguiente.setActionCommand(BUT_SIGUIENTE);
 		butSiguiente.addActionListener(this);
 		butSiguiente.addActionListener(this);
-		butSiguiente.setActionCommand(BUT_SIGUIENTE);
 		butSiguiente.setOpaque(false);
 		butSiguiente.setContentAreaFilled(false); 
 		butSiguiente.setFocusable(false);
 		butSiguiente.setBorderPainted(false);
-		butSiguiente.setIcon(new ImageIcon("./botones/siguiente.png"));
-		butSiguiente.setRolloverIcon(new ImageIcon("./botones/siguiente_ampliada.gif"));
+		butSiguiente.setIcon(new ImageIcon("./botones/nuevaPartida/siguiente.png"));
+		butSiguiente.setRolloverIcon(new ImageIcon("./botones/nuevaPartida/siguiente_ampliada.gif"));
 		
 		butAtras=new JButton();
 		butAtras.addActionListener(this);
 		butAtras.setActionCommand(BUT_ATRAS);
-		butAtras.setIcon(new ImageIcon("./botones/atras.png"));
-		butAtras.setActionCommand(BUT_ATRAS);
+		butAtras.setIcon(new ImageIcon("./botones/nuevaPartida/atras.png"));
 		butAtras.addActionListener(this);
 		butAtras.setOpaque(false);
 		butAtras.setContentAreaFilled(false); 
 		butAtras.setFocusable(false);
 		butAtras.setBorderPainted(false);
-		butAtras.setIcon(new ImageIcon("./botones/atras.png"));
-		butAtras.setRolloverIcon(new ImageIcon("./botones/atras_ampliada.gif"));
+		butAtras.setIcon(new ImageIcon("./botones/nuevaPartida/atras.png"));
+		butAtras.setRolloverIcon(new ImageIcon("./botones/nuevaPartida/atras_ampliada.gif"));
 		
 		this.add(butAtras);
 		this.add(butSiguiente);

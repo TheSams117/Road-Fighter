@@ -45,8 +45,8 @@ public class PanelBotones extends JPanel implements ActionListener{
 		butNuevaPartida.setContentAreaFilled(false); 
 		butNuevaPartida.setFocusable(false);
 		butNuevaPartida.setBorderPainted(false);
-		butNuevaPartida.setIcon(new ImageIcon("./botones/nueva_partida.png"));
-		butNuevaPartida.setRolloverIcon(new ImageIcon("./botones/nueva_partida_ampliada.gif"));
+		butNuevaPartida.setIcon(new ImageIcon("./botones/principal/nueva_partida.png"));
+		butNuevaPartida.setRolloverIcon(new ImageIcon("./botones/principal/nueva_partida_ampliada.gif"));
 		
 
 		
@@ -58,8 +58,8 @@ public class PanelBotones extends JPanel implements ActionListener{
 		butCargarPartida.setContentAreaFilled(false);
 		butCargarPartida.setFocusable(false);
 		butCargarPartida.setBorderPainted(false);
-		butCargarPartida.setIcon(new ImageIcon("./botones/cargar.png"));
-		butCargarPartida.setRolloverIcon(new ImageIcon("./botones/cargar_ampliada.gif"));
+		butCargarPartida.setIcon(new ImageIcon("./botones/principal/cargar.png"));
+		butCargarPartida.setRolloverIcon(new ImageIcon("./botones/principal/cargar_ampliada.gif"));
 
 	
 		butHistorial= new JButton();
@@ -69,8 +69,8 @@ public class PanelBotones extends JPanel implements ActionListener{
 		butHistorial.setContentAreaFilled(false);
 		butHistorial.setFocusable(false);
 		butHistorial.setBorderPainted(false);
-		butHistorial.setIcon(new ImageIcon("./botones/historial.png"));
-		butHistorial.setRolloverIcon(new ImageIcon("./botones/historial_ampliada.gif"));
+		butHistorial.setIcon(new ImageIcon("./botones/principal/historial.png"));
+		butHistorial.setRolloverIcon(new ImageIcon("./botones/principal/historial_ampliada.gif"));
 
 		
 		
@@ -83,8 +83,8 @@ public class PanelBotones extends JPanel implements ActionListener{
 		butPuntajes.setContentAreaFilled(false);
 		butPuntajes.setFocusable(false);
 		butPuntajes.setBorderPainted(false);
-		butPuntajes.setIcon(new ImageIcon("./botones/puntajes.png"));
-		butPuntajes.setRolloverIcon(new ImageIcon("./botones/puntajes_ampliada.gif"));
+		butPuntajes.setIcon(new ImageIcon("./botones/principal/puntajes.png"));
+		butPuntajes.setRolloverIcon(new ImageIcon("./botones/principal/puntajes_ampliada.gif"));
 
 
 		this.add(new JLabel(""));
@@ -117,7 +117,7 @@ public class PanelBotones extends JPanel implements ActionListener{
 			principal.nuevaPartida();
 		}
 		else if(comando.equals(BOTON_CARGAR_PARTIDA)) {
-			
+			principal.cargarPartida();
 		}
 		else if(comando.equals(BOTON_HISTORIAL)) {
 			
