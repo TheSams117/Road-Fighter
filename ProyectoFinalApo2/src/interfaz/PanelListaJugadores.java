@@ -29,6 +29,7 @@ public class PanelListaJugadores extends JPanel{
 		listaJugadores.setBackground(Color.BLACK);
 		listaJugadores.setForeground(Color.WHITE);
 		listaJugadores.setBorder(null);
+		scroll.setBorder(null);
 	}
 	
 	public void borrarLista() {
