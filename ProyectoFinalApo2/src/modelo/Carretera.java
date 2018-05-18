@@ -12,19 +12,19 @@ import java.util.ArrayList;
  */
 public class Carretera implements Serializable {
 	
-	public static final String CARRETERA_TIPO_CAMPO = "imagenes/mapas/campo.png";
+	public static final String CARRETERA_TIPO_CAMPO = "imagenes/campo.png";
 	public static final int LIMITE_DERECHA_CAMPO = 0;
 	public static final int LIMITE_IZQUIERDA_CAMPO = 0;
 	
-	public static final String CARRETERA_TIPO_PUENTE = "imagenes/mapas/puente.png";
+	public static final String CARRETERA_TIPO_PUENTE = "imagenes/puente.png";
 	public static final int LIMITE_DERECHA_PUENTE = 0;
 	public static final int LIMITE_IZQUIERDA_PUENTE = 0;
 	
-	public static final String CARRETERA_TIPO_PLAYA = "imagenes/mapas/playa.png";
+	public static final String CARRETERA_TIPO_PLAYA = "imagenes/playa.png";
 	public static final int LIMITE_DERECHA_PLAYA = 0;
 	public static final int LIMITE_IZQUIERDA_PLAYA = 0;
 	
-	public static final String CARRETERA_TIPO_CANHON = "imagenes/mapas/cañon.png";
+	public static final String CARRETERA_TIPO_CANHON = "imagenes/cañon.png";
 	public static final int LIMITE_DERECHA_CANHON = 0;
 	public static final int LIMITE_IZQUIERDA_CANHON = 0;
 	
@@ -77,7 +77,7 @@ public class Carretera implements Serializable {
 			tipo=CARRETERA_TIPO_CANHON;
 			
 		}
-		
+	
 		cantidadAutomovilesJugador=3;
 		cantidadAutomovilesCarretera=8;
 		numeroCarretera=pNumeroCarretera;
@@ -175,8 +175,14 @@ public class Carretera implements Serializable {
 		return automovilSeleccionado;
 	}
 
-	public void cambiarAutomovilSeleccionado(AutomovilJugador pAutomovilSeleccionado) {
-		automovilSeleccionado = pAutomovilSeleccionado;
+	public void cambiarAutomovilSeleccionado(String pAutomovil) {
+		if(pAutomovil==AutomovilJugador.AUTOMOVIL_1) {
+			automovilSeleccionado=buscarBinarioAutomovil(AutomovilJugador.PLACA_AUTO_1);
+		}else if(pAutomovil==AutomovilJugador.AUTOMOVIL_2) {
+			automovilSeleccionado=buscarBinarioAutomovil(AutomovilJugador.PLACA_AUTO_2);
+		}else if(pAutomovil==AutomovilJugador.AUTOMOVIL_3) {
+			automovilSeleccionado=buscarBinarioAutomovil(AutomovilJugador.PLACA_AUTO_3);
+		}
 	}
 
 	public Carretera darCarreteraSiguiente() {

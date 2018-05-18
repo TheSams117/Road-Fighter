@@ -80,7 +80,18 @@ public class RoadFigther {
 		jugador = pJugador;
 	}
 	
-	public void agregarCarretera(int pAutomovil,int pCarretera) {
+	public void agregarCarretera(String pAutomovil,String pCarretera) {
+		Carretera nueva = nuevaPartida(pAutomovil,pCarretera);
+		carreteraSeleccionada=nueva;
+		Carretera carreteraActual = carretera;
+		if(carreteraActual==null) {
+			carretera=nueva;
+		}else {
+			while(carreteraActual.darCarreteraSiguiente() != null) {
+				carreteraActual=carreteraActual.darCarreteraSiguiente();
+			}
+			carreteraActual.cambiarCarreteraSiguiente(nueva);
+		}
 		
 	}
 	
@@ -128,8 +139,36 @@ public class RoadFigther {
 			
 	}
 		
-	public void nuevaPartida(int numero1, int numero2) {
+	public Carretera nuevaPartida(String pAuto,String pMapa) {
+		int numeroCarretera = darNumeroUnicoDeCarretera();
+		Carretera nueva = new Carretera(pMapa,numeroCarretera);
+		nueva.cambiarAutomovilSeleccionado(pAuto);
+		
+		return nueva;
+		
 			
+	}
+	
+	public int darNumeroUnicoDeCarretera() {
+		int numero = (int) (Math.random()*(10000-0));;
+	
+		Carretera carreteraActual=carretera;
+		if (carreteraActual==null) {
+			
+		}else {
+			while(carreteraActual!=null) {
+				if(carreteraActual.darNumeroCarretera()==numero) {
+					carreteraActual=carretera;
+					numero=(int) (Math.random()*(10000-0));
+				}else {
+					carreteraActual.darCarreteraSiguiente();
+				}
+			}
+		}
+		
+		return numero;
+		
+		
 	}
 		
 	public String[] darHistorial() {

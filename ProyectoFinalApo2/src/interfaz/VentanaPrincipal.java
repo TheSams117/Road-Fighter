@@ -7,13 +7,13 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 
+import modelo.RoadFigther;
+
 public class VentanaPrincipal extends JFrame {
 	
 	
-	private PanelBotones panelBotones;
-	
-	
-	
+	private PanelBotones panelBotones;	
+	private RoadFigther modeloJuego;
 
 	public VentanaPrincipal() {
 		this.setSize(500,500);
@@ -22,18 +22,13 @@ public class VentanaPrincipal extends JFrame {
 		this.setResizable(false);
 		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		panelBotones= new PanelBotones(this);
-		
-		this.add(panelBotones,BorderLayout.CENTER);
-		
-		
-		
-		
-		
-		
+		modeloJuego = new RoadFigther();
+		this.add(panelBotones,BorderLayout.CENTER);	
 	}
 	
-
-	
+	public RoadFigther darModeloJuego() {
+		return modeloJuego;
+	}
 	
 	
 	

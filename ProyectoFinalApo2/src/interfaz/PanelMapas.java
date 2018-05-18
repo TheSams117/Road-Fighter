@@ -17,6 +17,8 @@ import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
+import modelo.Carretera;
+
 public class PanelMapas extends JPanel implements ActionListener  {
 
 	public final static String MAPA_1= "mapa1";
@@ -42,7 +44,7 @@ public class PanelMapas extends JPanel implements ActionListener  {
 	private VentanaSeleccion ventanaSeleccion;
 	
 	public PanelMapas(VentanaSeleccion v) {
-		
+		seleccion="";
 		this.setBackground(Color.BLACK);
 		ventanaSeleccion=v;
 		this.setPreferredSize(new Dimension(750,225));
@@ -117,6 +119,10 @@ public class PanelMapas extends JPanel implements ActionListener  {
 
 		
 	}
+	
+	public String darSeleccion() {
+		return seleccion;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent evento) {
@@ -126,7 +132,7 @@ public class PanelMapas extends JPanel implements ActionListener  {
 				but_mapa2.setSelected(false);
 				but_mapa3.setSelected(false);
 				but_mapa4.setSelected(false);
-				seleccion=MAPA_1;
+				seleccion=Carretera.CARRETERA_TIPO_CAMPO;
 			}
 			else {
 				seleccion="";
@@ -138,7 +144,7 @@ public class PanelMapas extends JPanel implements ActionListener  {
 				but_mapa1.setSelected(false);
 				but_mapa3.setSelected(false);
 				but_mapa4.setSelected(false);
-				seleccion=MAPA_2;
+				seleccion=Carretera.CARRETERA_TIPO_PUENTE;
 			}
 			else {
 				seleccion="";
@@ -149,7 +155,7 @@ public class PanelMapas extends JPanel implements ActionListener  {
 				but_mapa1.setSelected(false);
 				but_mapa2.setSelected(false);
 				but_mapa4.setSelected(false);
-				seleccion=MAPA_3;
+				seleccion=Carretera.CARRETERA_TIPO_PLAYA;
 			}
 			else {
 				seleccion="";
@@ -160,7 +166,7 @@ public class PanelMapas extends JPanel implements ActionListener  {
 				but_mapa1.setSelected(false);
 				but_mapa2.setSelected(false);
 				but_mapa3.setSelected(false);
-				seleccion=MAPA_1;
+				seleccion=Carretera.CARRETERA_TIPO_CANHON;
 			}
 			else {
 				seleccion="";

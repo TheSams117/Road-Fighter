@@ -14,6 +14,8 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.SwingConstants;
 
+import modelo.AutomovilJugador;
+
 public class PanelCarros extends JPanel implements ActionListener{
 
 	public final static String CARRO_1="carro1";
@@ -37,6 +39,7 @@ public class PanelCarros extends JPanel implements ActionListener{
 	
 	public PanelCarros(VentanaSeleccion v) {
 		ventanaSeleccion=v;
+		seleccion="";
 		this.setPreferredSize(new Dimension(750,225));
 		this.setBackground(Color.BLACK);
 		this.setLayout(new BorderLayout());
@@ -116,6 +119,12 @@ public class PanelCarros extends JPanel implements ActionListener{
 
 
 
+	public String darSeleccion() {
+		return seleccion;
+	}
+
+
+
 	@Override
 	public void actionPerformed(ActionEvent evento) {
 	String comando = evento.getActionCommand();
@@ -123,6 +132,7 @@ public class PanelCarros extends JPanel implements ActionListener{
 		if(but_carro1.isSelected()) {
 			but_carro2.setSelected(false);
 			but_carro3.setSelected(false);
+			seleccion=AutomovilJugador.AUTOMOVIL_1;
 		}
 		else {
 			seleccion="";
@@ -132,6 +142,7 @@ public class PanelCarros extends JPanel implements ActionListener{
 		if(but_carro2.isSelected()) {
 			but_carro1.setSelected(false);
 			but_carro3.setSelected(false);
+			seleccion=AutomovilJugador.AUTOMOVIL_2;
 		}
 		else {
 			seleccion="";
@@ -141,6 +152,7 @@ public class PanelCarros extends JPanel implements ActionListener{
 		if(but_carro3.isSelected()) {
 			but_carro1.setSelected(false);
 			but_carro2.setSelected(false);
+			seleccion=AutomovilJugador.AUTOMOVIL_3;
 		}
 		else {
 			seleccion="";

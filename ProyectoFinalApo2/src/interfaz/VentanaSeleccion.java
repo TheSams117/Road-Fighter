@@ -33,6 +33,27 @@ public class VentanaSeleccion extends JFrame {
 		
 		
 	}
+	
+	
+	public PanelCarros darPanelCarros() {
+		return panelCarros;
+	}
+
+
+	public PanelMapas darPanelMapas() {
+		return panelMapas;
+	}
+
+
+	public PanelBotonesAtras darPanelBotonesAtras() {
+		return panelBotonesAtras;
+	}
+
+
+	public VentanaPrincipal darPrincipal() {
+		return principal;
+	}
+
 
 	public void atras() {
 		this.setVisible(false);
@@ -40,7 +61,12 @@ public class VentanaSeleccion extends JFrame {
 		
 	}
 	
-	
+	public void siguiente() {
+		VentanaJuego ventana= new VentanaJuego(this);
+		ventana.setVisible(true);
+		this.setVisible(false);
+		
+	}
 	
 	
 	

@@ -69,7 +69,19 @@ public class PanelBotonesAtras extends JPanel implements ActionListener{
 			
 		}
 		else if(comando.equals(this.BUT_SIGUIENTE)) {
+			String auto = ventanaSeleccion.darPanelCarros().darSeleccion();
+			String mapa = ventanaSeleccion.darPanelMapas().darSeleccion();
+			if(auto.equals("")) {
+				JOptionPane.showMessageDialog(this, "Debe elegir un automovil para continuar");
+			}else if(mapa.equals("")) {
+				JOptionPane.showMessageDialog(this, "Debe elegir un mapa para continuar");
+			}else {
+				ventanaSeleccion.siguiente();
+				ventanaSeleccion.darPrincipal().darModeloJuego().agregarCarretera(auto, mapa);
+				
+			}
 			
+	
 		}
 		
 	}
