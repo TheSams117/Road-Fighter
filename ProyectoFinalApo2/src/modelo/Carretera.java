@@ -12,19 +12,28 @@ import java.util.ArrayList;
  */
 public class Carretera implements Serializable {
 	
+	public static final int TAMANHO_PANEL = 435;
 	public static final String CARRETERA_TIPO_CAMPO = "imagenes/campo.png";
+	public static final int POS_Y_INICAL_DE_AUTOMOVIL_CAMPO = 450;
+	public static final int POS_X_INICAL_DE_AUTOMOVIL_CAMPO = 350;
 	public static final int LIMITE_DERECHA_CAMPO = 0;
 	public static final int LIMITE_IZQUIERDA_CAMPO = 0;
 	
 	public static final String CARRETERA_TIPO_PUENTE = "imagenes/puente.png";
+	public static final int POS_Y_INICAL_DE_AUTOMOVIL_PUENTE = 450;
+	public static final int POS_X_INICAL_DE_AUTOMOVIL_PUENTE = 255;
 	public static final int LIMITE_DERECHA_PUENTE = 0;
 	public static final int LIMITE_IZQUIERDA_PUENTE = 0;
 	
 	public static final String CARRETERA_TIPO_PLAYA = "imagenes/playa.png";
+	public static final int POS_Y_INICAL_DE_AUTOMOVIL_PLAYA = 450;
+	public static final int POS_X_INICAL_DE_AUTOMOVIL_PLAYA = 176;
 	public static final int LIMITE_DERECHA_PLAYA = 0;
 	public static final int LIMITE_IZQUIERDA_PLAYA = 0;
 	
 	public static final String CARRETERA_TIPO_CANHON = "imagenes/cañon.png";
+	public static final int POS_Y_INICAL_DE_AUTOMOVIL_CANHON = 450;
+	public static final int POS_X_INICAL_DE_AUTOMOVIL_CANHON = 343;
 	public static final int LIMITE_DERECHA_CANHON = 0;
 	public static final int LIMITE_IZQUIERDA_CANHON = 0;
 	
@@ -51,9 +60,38 @@ public class Carretera implements Serializable {
 	public Carretera(String pCarretera,int pNumeroCarretera){
 		
 		automoviles = new Automovil[2];
-		automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,0,0,0);
-		automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,0,0,0));
-		automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,0,0,0));
+		
+		if(pCarretera.equals(CARRETERA_TIPO_CAMPO)) {
+			
+			tipo=CARRETERA_TIPO_CAMPO;
+			
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,0);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,0));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,0));
+			
+		}else if(pCarretera.equals(CARRETERA_TIPO_PUENTE)) {
+			tipo=CARRETERA_TIPO_PUENTE;
+			
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,0);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,0));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,0));
+			
+		}else if(pCarretera.equals(CARRETERA_TIPO_PLAYA)) {
+			tipo=CARRETERA_TIPO_PLAYA;
+			
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,0);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,0));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,0));
+			
+		}else if(pCarretera.equals(CARRETERA_TIPO_CANHON)) {
+			tipo=CARRETERA_TIPO_CANHON;
+			
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,0);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,0));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,0));
+			
+		}
+		
 		
 		automoviles[1] = new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_1,AutomovilCarretera.CAMION,0,0,0);
 		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AMARILLO_2,AutomovilCarretera.CARRO_AMARILLO,0,0,0)) ;
@@ -64,25 +102,13 @@ public class Carretera implements Serializable {
 		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AZUL_2,AutomovilCarretera.CARRO_AZUL,0,0,0)) ;
 		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_2,AutomovilCarretera.CAMION,0,0,0)) ;
 		
-		if(pCarretera.equals(CARRETERA_TIPO_CAMPO)) {
-			tipo=CARRETERA_TIPO_CAMPO;
-			
-		}else if(pCarretera.equals(CARRETERA_TIPO_PUENTE)) {
-			tipo=CARRETERA_TIPO_PUENTE;
-			
-		}else if(pCarretera.equals(CARRETERA_TIPO_PLAYA)) {
-			tipo=CARRETERA_TIPO_PLAYA;
-			
-		}else if(pCarretera.equals(CARRETERA_TIPO_CANHON)) {
-			tipo=CARRETERA_TIPO_CANHON;
-			
-		}
+		
 	
 		cantidadAutomovilesJugador=3;
 		cantidadAutomovilesCarretera=8;
 		numeroCarretera=pNumeroCarretera;
 		posYImagen1=0;
-		posYImagen2=-2;
+		posYImagen2=-TAMANHO_PANEL;
 		avanza=false;
 		
 		
@@ -132,7 +158,12 @@ public class Carretera implements Serializable {
 	}
 	
 	public void moverImagen1() {
-		posYImagen1+=1;
+		if(posYImagen1==TAMANHO_PANEL) {
+			posYImagen1=-TAMANHO_PANEL;
+		}else {
+			posYImagen1+=1;
+		}
+		
 	}
 
 	public int darPosYImagen1() {
@@ -144,7 +175,12 @@ public class Carretera implements Serializable {
 	}
 	
 	public void moverImagen2() {
-		posYImagen2+=1;
+		if(posYImagen2==TAMANHO_PANEL) {
+			posYImagen2=-TAMANHO_PANEL;
+		}else {
+			posYImagen2+=1;
+		}
+	
 	}
 	
 	public int darPosYImagen2() {
@@ -178,6 +214,7 @@ public class Carretera implements Serializable {
 	public void cambiarAutomovilSeleccionado(String pAutomovil) {
 		if(pAutomovil==AutomovilJugador.AUTOMOVIL_1) {
 			automovilSeleccionado=buscarBinarioAutomovil(AutomovilJugador.PLACA_AUTO_1);
+			
 		}else if(pAutomovil==AutomovilJugador.AUTOMOVIL_2) {
 			automovilSeleccionado=buscarBinarioAutomovil(AutomovilJugador.PLACA_AUTO_2);
 		}else if(pAutomovil==AutomovilJugador.AUTOMOVIL_3) {
@@ -244,21 +281,23 @@ public class Carretera implements Serializable {
 	
 	public AutomovilJugador buscarBinarioAutomovil(int pPlaca) {
 		ArrayList<AutomovilJugador> lista = darAutoMovilesJugadorOrdenadosSeleccion();
-		
-		AutomovilJugador encontrado = null;
+		AutomovilJugador auto = null;
+		boolean encontrado = false;
 		int inicio = 0;
 		int fin = lista.size()-1;
-		while (inicio <= fin && encontrado == null ) {
+		while (inicio <= fin && !encontrado ) {
 			int medio = (inicio + fin ) / 2 ;
 			if (lista.get(medio).darPlaca() == pPlaca ) {
-				encontrado = lista.get(medio);
+				auto = lista.get(medio);
+				encontrado=true;
 			} else if (lista.get(medio).darPlaca()  > pPlaca) {
 				fin = medio -1 ;
 			} else {
 				inicio = medio + 1;
 			}
 		}
-		return encontrado;
+		
+		return auto;
 	}
 	
 	public  ArrayList<AutomovilJugador> darAutoMovilesJugador() {
@@ -266,7 +305,7 @@ public class Carretera implements Serializable {
 		ArrayList<AutomovilJugador> lista = new ArrayList<AutomovilJugador>();
 		while(actual != null) {
 			lista.add(actual);
-			actual = (AutomovilJugador) actual.darAutomovilAnterior();
+			actual = (AutomovilJugador) actual.darAutomovilSiguiente();
 		}
 		
 		return lista;
@@ -275,7 +314,7 @@ public class Carretera implements Serializable {
 	public ArrayList<AutomovilJugador> darAutoMovilesJugadorOrdenadosSeleccion() {
 		ArrayList<AutomovilJugador> lista = darAutoMovilesJugador();
 		
-		for (int i = 0; i > lista.size() -1; i++) {
+		for (int i = 0; i < lista.size()-1; i++) {
 			AutomovilJugador menor = lista.get(i); 
 			int cual = i;
 			for (int j = i + 1; j < lista.size(); j++  ) {
@@ -284,9 +323,10 @@ public class Carretera implements Serializable {
 					cual = j;
 				}
 			}
-			AutomovilJugador temp = lista.get(cual);
+			AutomovilJugador temp = lista.get(i);
 			lista.set(i, menor);
 			lista.set(cual,temp);
+			
 		}
 		
 		return lista;

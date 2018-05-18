@@ -76,8 +76,9 @@ public class PanelBotonesAtras extends JPanel implements ActionListener{
 			}else if(mapa.equals("")) {
 				JOptionPane.showMessageDialog(this, "Debe elegir un mapa para continuar");
 			}else {
-				ventanaSeleccion.siguiente();
 				ventanaSeleccion.darPrincipal().darModeloJuego().agregarCarretera(auto, mapa);
+				ventanaSeleccion.siguiente();
+				
 				
 			}
 			

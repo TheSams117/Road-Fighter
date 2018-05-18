@@ -46,19 +46,19 @@ public class PanelCarros extends JPanel implements ActionListener{
 		
 		carro1= new JLabel();
 		ImageIcon img1= new ImageIcon("./imagenes/carro_1.png");
-		Image img1_dimensionada= img1.getImage().getScaledInstance(150, 200, Image.SCALE_SMOOTH);
+		Image img1_dimensionada= img1.getImage().getScaledInstance(130, 150, Image.SCALE_SMOOTH);
 		img1.setImage(img1_dimensionada);
 		carro1.setIcon(img1);
 	
 		carro2= new JLabel();
 		ImageIcon img2= new ImageIcon("./imagenes/carro_2.png");
-		Image img2_dimensionada= img2.getImage().getScaledInstance(150, 200, Image.SCALE_SMOOTH);
+		Image img2_dimensionada= img2.getImage().getScaledInstance(130, 150, Image.SCALE_SMOOTH);
 		img2.setImage(img2_dimensionada);
 		carro2.setIcon(img2);
 		
 		carro3= new JLabel();
 		ImageIcon img3= new ImageIcon("./imagenes/carro_3.png");
-		Image img3_dimensionada= img3.getImage().getScaledInstance(150, 200, Image.SCALE_SMOOTH);
+		Image img3_dimensionada= img3.getImage().getScaledInstance(130, 150, Image.SCALE_SMOOTH);
 		img3.setImage(img3_dimensionada);
 		carro3.setIcon(img3);
 		
