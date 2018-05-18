@@ -22,9 +22,9 @@ public class Jugador implements Comparable<Jugador>,Serializable{
 	 */
 	private int puntaje;
 	/**
-	 * Declaracion de entero que representa la carretera seleccionada por el jugador en la partida.
+	 * Declaracion de cadena de caracteres que representa la carretera seleccionada por el jugador en la partida.
 	 */
-	private int numeroCarreteraSeleccionada;
+	private String carreteraSeleccionada;
 	/**
 	 * Declaracion de objeto Jugador que representa el jugador siguiente en la lista enlazada.
 	 */
@@ -46,12 +46,12 @@ public class Jugador implements Comparable<Jugador>,Serializable{
 	 * @param pCarreteraSeleccionada Carretera seleccionada por el jugador.
 	 * @param pPlacaAutoMovilSeleccionado Automovil seleccionado por jugador
 	 */	
-	public Jugador(String pNombre, int pPuntaje,int pCarreteraSeleccionada) {
+	public Jugador(String pNombre, int pPuntaje,String pCarreteraSeleccionada) {
 		nombre = pNombre;
 		puntaje = pPuntaje;
 		nodoDerecho = null;
 		nodoIzquierdo = null;
-		numeroCarreteraSeleccionada = pCarreteraSeleccionada;
+		carreteraSeleccionada = pCarreteraSeleccionada;
 	}
 	// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	// METODO: DAR(get) y CAMBIAR(set)
@@ -88,10 +88,10 @@ public class Jugador implements Comparable<Jugador>,Serializable{
 		return nodoIzquierdo;
 	}
 	/**
-	 * @return El numero que representa la carretera seleccionada por el jugador.
+	 * @return La cadena de caracteres que representa la carretera seleccionada por el jugador.
 	 */
-	public int darNumeroCarreteraSeleccionada() {
-		return numeroCarreteraSeleccionada;
+	public String darNumeroCarreteraSeleccionada() {
+		return carreteraSeleccionada;
 	}
 	/**
 	 * Compara al jugador con el PJugador que llega por parametro por nombre. <br>
@@ -102,7 +102,9 @@ public class Jugador implements Comparable<Jugador>,Serializable{
 	public int compareTo(Jugador PJugador) {
 		return this.compareTo(PJugador);
 	}
-	
+	/**
+	 * Sobrescritura del metodo toString, retorna el nombre y el puntaje. <br>
+	 */
 	@Override
 	public String toString() {
 		return "Nombre: "+nombre+" --- Puntaje: "+puntaje;

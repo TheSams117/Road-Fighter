@@ -92,7 +92,7 @@ public class RoadFigther {
 		
 	}
 	
-	public void agregarJugador(Jugador elJugador) {
+	public void agregarJugador() {
 		
 	}
 	

@@ -49,6 +49,21 @@ public class Carretera implements Serializable {
 	private Automovil[] automoviles;
 	
 	public Carretera(String pCarretera,int pNumeroCarretera){
+		
+		automoviles = new Automovil[2];
+		automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,0,0,0);
+		automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,0,0,0));
+		automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,0,0,0));
+		
+		automoviles[1] = new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_1,AutomovilCarretera.CAMION,0,0,0);
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AMARILLO_2,AutomovilCarretera.CARRO_AMARILLO,0,0,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AZUL_1,AutomovilCarretera.CARRO_AZUL,0,0,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_ROJO_2,AutomovilCarretera.CARRO_ROJO,0,0,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AMARILLO_1,AutomovilCarretera.CARRO_AMARILLO,0,0,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_ROJO_1,AutomovilCarretera.CARRO_ROJO,0,0,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AZUL_2,AutomovilCarretera.CARRO_AZUL,0,0,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_2,AutomovilCarretera.CAMION,0,0,0)) ;
+		
 		if(pCarretera.equals(CARRETERA_TIPO_CAMPO)) {
 			tipo=CARRETERA_TIPO_CAMPO;
 			
@@ -62,30 +77,12 @@ public class Carretera implements Serializable {
 			tipo=CARRETERA_TIPO_CANHON;
 			
 		}
+		
+		cantidadAutomovilesJugador=3;
+		cantidadAutomovilesCarretera=8;
 		numeroCarretera=pNumeroCarretera;
 		posYImagen1=0;
 		posYImagen2=-2;
-		automoviles = new Automovil[2];
-		automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,0,0,0);
-		automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,0,0,0));
-		automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,0,0,0));
-		
-		cantidadAutomovilesJugador=3;
-		
-		
-		
-		automoviles[1] = new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_1,AutomovilCarretera.CAMION,0,0,0);
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AMARILLO_2,AutomovilCarretera.CARRO_AMARILLO,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AZUL_1,AutomovilCarretera.CARRO_AZUL,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_ROJO_2,AutomovilCarretera.CARRO_ROJO,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AMARILLO_1,AutomovilCarretera.CARRO_AMARILLO,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_ROJO_1,AutomovilCarretera.CARRO_ROJO,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AZUL_2,AutomovilCarretera.CARRO_AZUL,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_2,AutomovilCarretera.CAMION,0,0,0)) ;
-		
-		
-		cantidadAutomovilesCarretera=8;
-		
 		avanza=false;
 		
 		
