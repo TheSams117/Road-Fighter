@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class PanelBotonesAtras extends JPanel implements ActionListener{
@@ -31,7 +32,6 @@ public class PanelBotonesAtras extends JPanel implements ActionListener{
 		butSiguiente=new JButton();
 		butSiguiente.setActionCommand(BUT_SIGUIENTE);
 		butSiguiente.addActionListener(this);
-		butSiguiente.addActionListener(this);
 		butSiguiente.setOpaque(false);
 		butSiguiente.setContentAreaFilled(false); 
 		butSiguiente.setFocusable(false);
@@ -43,7 +43,6 @@ public class PanelBotonesAtras extends JPanel implements ActionListener{
 		butAtras.addActionListener(this);
 		butAtras.setActionCommand(BUT_ATRAS);
 		butAtras.setIcon(new ImageIcon("./botones/nuevaPartida/atras.png"));
-		butAtras.addActionListener(this);
 		butAtras.setOpaque(false);
 		butAtras.setContentAreaFilled(false); 
 		butAtras.setFocusable(false);

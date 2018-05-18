@@ -120,10 +120,10 @@ public class PanelBotones extends JPanel implements ActionListener{
 			principal.cargarPartida();
 		}
 		else if(comando.equals(BOTON_HISTORIAL)) {
-			
+			principal.historial();
 		}
 		else if(comando.equals(BOTON_PUNTAJES)) {
-			
+			principal.puntajes();
 		}
 		
 	}
