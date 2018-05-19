@@ -98,6 +98,9 @@ public class Jugador implements Comparable<Jugador>,Serializable{
 	 * @param PJugador jugador con el que se quiere comparar.
 	 * @return numero>0 si PJugador es menor, numero<0 si PJugador es mayor o numero==0 si PJugador es igual.
 	 */
+	
+	
+	
 	@Override
 	public int compareTo(Jugador PJugador) {
 		return this.compareTo(PJugador);
@@ -109,4 +112,12 @@ public class Jugador implements Comparable<Jugador>,Serializable{
 	public String toString() {
 		return "Nombre: "+nombre+" --- Puntaje: "+puntaje;
 	}
+	
+	public void setNodoDerecho(Jugador nodoDerecho) {
+		this.nodoDerecho = nodoDerecho;
+	}
+	public void setNodoIzquierdo(Jugador nodoIzquierdo) {
+		this.nodoIzquierdo = nodoIzquierdo;
+	}
+	
 }
