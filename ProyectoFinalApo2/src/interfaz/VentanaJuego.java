@@ -51,5 +51,21 @@ public class VentanaJuego extends JFrame{
 	public PanelInformacionJuego darPaneInformacionJuego() {
 		return paneInformacionJuego;
 	}
+	public int darAnchoAutomovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return ventanaSeleccion.darAnchoAutoMovilSeleccionado();
+	}
+	public int darAlturaAutomovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return ventanaSeleccion.darAlturaAutomovilSeleccionado();
+	}
+	public void avanzar() {
+		ventanaSeleccion.avanzar();
+		
+	}
+	public void detener() {
+		// TODO Auto-generated method stub
+		ventanaSeleccion.detener();
+	}
 	
 }

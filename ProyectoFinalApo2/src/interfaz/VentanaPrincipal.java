@@ -106,4 +106,24 @@ public class VentanaPrincipal extends JFrame {
 		
 	}
 
+	public int darAnchoAutoMovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return modeloJuego.darAnchoAutoMovilSeleccionado();
+	}
+
+	public int darAlturaAutomovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return modeloJuego.darAlturaAutomovilSeleccionado();
+	}
+
+	public void avanzar() {
+		modeloJuego.avanzar();
+		
+	}
+
+	public void detener() {
+		// TODO Auto-generated method stub
+		modeloJuego.detener();
+	}
+
 }

@@ -65,42 +65,42 @@ public class Carretera implements Serializable {
 			
 			tipo=CARRETERA_TIPO_CAMPO;
 			
-			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,0);
-			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,0));
-			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,0));
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
 			
 		}else if(pCarretera.equals(CARRETERA_TIPO_PUENTE)) {
 			tipo=CARRETERA_TIPO_PUENTE;
 			
-			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,0);
-			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,0));
-			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,0));
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
 			
 		}else if(pCarretera.equals(CARRETERA_TIPO_PLAYA)) {
 			tipo=CARRETERA_TIPO_PLAYA;
 			
-			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,0);
-			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,0));
-			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,0));
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
 			
 		}else if(pCarretera.equals(CARRETERA_TIPO_CANHON)) {
 			tipo=CARRETERA_TIPO_CANHON;
 			
-			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,0);
-			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,0));
-			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,0));
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
 			
 		}
 		
 		
-		automoviles[1] = new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_1,AutomovilCarretera.CAMION,0,0,0);
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AMARILLO_2,AutomovilCarretera.CARRO_AMARILLO,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AZUL_1,AutomovilCarretera.CARRO_AZUL,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_ROJO_2,AutomovilCarretera.CARRO_ROJO,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AMARILLO_1,AutomovilCarretera.CARRO_AMARILLO,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_ROJO_1,AutomovilCarretera.CARRO_ROJO,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AZUL_2,AutomovilCarretera.CARRO_AZUL,0,0,0)) ;
-		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_2,AutomovilCarretera.CAMION,0,0,0)) ;
+		automoviles[1] = new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_1,AutomovilCarretera.CAMION,0,0,AutomovilCarretera.ANCHO_IMAGEN_CAMION,AutomovilCarretera.ALTO_IMAGEN_CAMION,0);
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AMARILLO_2,AutomovilCarretera.CARRO_AMARILLO,0,0,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AZUL_1,AutomovilCarretera.CARRO_AZUL,0,0,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_ROJO_2,AutomovilCarretera.CARRO_ROJO,0,0,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AMARILLO_1,AutomovilCarretera.CARRO_AMARILLO,0,0,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_ROJO_1,AutomovilCarretera.CARRO_ROJO,0,0,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CARRO_AZUL_2,AutomovilCarretera.CARRO_AZUL,0,0,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0)) ;
+		agregarAutomovilCarretera(new AutomovilCarretera(AutomovilCarretera.PLACA_CAMION_2,AutomovilCarretera.CAMION,0,0,AutomovilCarretera.ANCHO_IMAGEN_CAMION,AutomovilCarretera.ALTO_IMAGEN_CAMION,0)) ;
 		
 		
 	
@@ -124,8 +124,15 @@ public class Carretera implements Serializable {
 		tipo = pTipo;
 	}
 	
+	public void avanzar() {
+		avanza=true;
+	}
 	
-	public boolean Avanza() {
+	public void detener() {
+		avanza=false;
+	}
+	
+	public boolean darAvanza() {
 		return avanza;
 	}
 
@@ -330,5 +337,15 @@ public class Carretera implements Serializable {
 		}
 		
 		return lista;
+	}
+
+	public int darAnchoAutoMovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return automovilSeleccionado.darAnchoImagenAutomovil() ;
+	}
+
+	public int darAlturaAutomovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return automovilSeleccionado.darAlturaImagenAutomovil() ;
 	}
 }

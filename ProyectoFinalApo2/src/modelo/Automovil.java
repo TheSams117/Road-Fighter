@@ -1,6 +1,10 @@
 package modelo;
 
 public abstract class Automovil {
+	
+	public static final int ANCHO_IMAGEN_AUTOMOVIL=40;
+	public static final int ALTO_IMAGEN_AUTOMOVIL=60;
+	
 	private String imagen;
 	private int placa;
 	private int posX;
@@ -8,16 +12,31 @@ public abstract class Automovil {
 	private long velocidad;
 	private Automovil automovilSiguiente;
 	private Automovil automovilAnterior;
+	private int anchoImagenAutomovil;
+	private int alturaImagenAutomovil;
 	
-	public Automovil(int pPlaca,String pImagen,int pPosX,int pPosY,long pVelocidad) {
+	public Automovil(int pPlaca,String pImagen,int pPosX,int pPosY,int pAnchoImagenAutomovil,int pAlturaImagenAutomovil,long pVelocidad) {
 		placa=pPlaca;
 		imagen=pImagen;
 		posX=pPosX;
 		posY=pPosY;
 		velocidad=pVelocidad;
+		anchoImagenAutomovil=pAnchoImagenAutomovil;
+		alturaImagenAutomovil=pAlturaImagenAutomovil;
 		automovilSiguiente=null;
 		automovilAnterior=null;
 	}
+	
+		
+	public int darAnchoImagenAutomovil() {
+		return anchoImagenAutomovil;
+	}
+
+
+	public int darAlturaImagenAutomovil() {
+		return alturaImagenAutomovil;
+	}
+
 
 	public String darImagen() {
 		return imagen;

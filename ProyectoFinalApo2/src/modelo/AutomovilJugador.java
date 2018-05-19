@@ -9,8 +9,8 @@ public class AutomovilJugador extends Automovil implements IJugador {
 	public static final int PLACA_AUTO_3=103;
 	
 	
-	public AutomovilJugador(int pPlaca,String pImagen, int pPosX, int pPosY, long pVelocidad) {
-		super(pPlaca, pImagen, pPosX, pPosY, pVelocidad);
+	public AutomovilJugador(int pPlaca,String pImagen,int pPosX,int pPosY,int pAnchoImagenAutomovil,int pAlturaImagenAutomovil,long pVelocidad) {
+		super(pPlaca,pImagen, pPosX, pPosY,pAnchoImagenAutomovil,pAlturaImagenAutomovil, pVelocidad);
 		
 	}
 	

@@ -67,6 +67,30 @@ public class VentanaSeleccion extends JFrame {
 		this.setVisible(false);
 		
 	}
+
+
+	public int darAnchoAutoMovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return principal.darAnchoAutoMovilSeleccionado();
+	}
+
+
+	public int darAlturaAutomovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return principal.darAlturaAutomovilSeleccionado();
+	}
+
+
+	public void avanzar() {
+		principal.avanzar();
+		
+	}
+
+
+	public void detener() {
+		// TODO Auto-generated method stub
+		principal.detener();
+	}
 	
 	
 	

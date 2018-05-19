@@ -1,7 +1,8 @@
 package modelo;
 
 public class AutomovilCarretera extends Automovil implements ICarretera {
-	
+	public static final int ANCHO_IMAGEN_CAMION=40;
+	public static final int ALTO_IMAGEN_CAMION=60;
 	public static final String CAMION="imagenes/enemigos/automovil_enemigo1.png";
 	public static final int PLACA_CAMION_1=104;
 	public static final int PLACA_CAMION_2=108;
@@ -15,9 +16,9 @@ public class AutomovilCarretera extends Automovil implements ICarretera {
 	public static final int PLACA_CARRO_AMARILLO_1=107;
 	public static final int PLACA_CARRO_AMARILLO_2=111;
 	
-	public AutomovilCarretera(int pPlaca,String pImagen, int pPosX, int pPosY, long pVelocidad) {
-		super(pPlaca,pImagen, pPosX, pPosY, pVelocidad);
-		// TODO Auto-generated constructor stub
+	public AutomovilCarretera(int pPlaca,String pImagen,int pPosX,int pPosY,int pAnchoImagenAutomovil,int pAlturaImagenAutomovil,long pVelocidad) {
+		super(pPlaca,pImagen, pPosX, pPosY,pAnchoImagenAutomovil,pAlturaImagenAutomovil, pVelocidad);
+
 	}
 	
 	public void moverAdelante() {

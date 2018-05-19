@@ -175,4 +175,24 @@ public class RoadFigther {
 		return null;
 			
 	}
+
+	public int darAnchoAutoMovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return carreteraSeleccionada.darAnchoAutoMovilSeleccionado();
+	}
+
+	public int darAlturaAutomovilSeleccionado() {
+		// TODO Auto-generated method stub
+		return carreteraSeleccionada.darAlturaAutomovilSeleccionado();
+	}
+
+	public void avanzar() {
+		carreteraSeleccionada.avanzar();
+		
+	}
+
+	public void detener() {
+		carreteraSeleccionada.detener();
+		
+	}
 }

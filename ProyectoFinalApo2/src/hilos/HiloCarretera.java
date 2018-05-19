@@ -15,17 +15,23 @@ public class HiloCarretera extends Thread {
 	}
 	
 	public void run() {
-		while(true/*modelo.darCarreteraSeleccionada().Avanza()*/) {
-			modelo.darCarreteraSeleccionada().moverImagen1();
-			modelo.darCarreteraSeleccionada().moverImagen2();
-			ventana.refrescar();
+		
+		while(true) {
+			System.out.println(modelo.darCarreteraSeleccionada().darAvanza()+"");
+			if(modelo.darCarreteraSeleccionada().darAvanza()) {
+				modelo.darCarreteraSeleccionada().moverImagen1();
+				modelo.darCarreteraSeleccionada().moverImagen2();
+				ventana.refrescar();
 			
-			try {
-				this.sleep(0,001);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+					try {
+						this.sleep(0,001);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		}
+			
+			
 		}
 	}
 }
