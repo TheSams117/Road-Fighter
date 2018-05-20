@@ -4,7 +4,7 @@ import interfaz.VentanaJuego;
 import modelo.RoadFigther;
 
 public class HiloVelocidad extends Thread {
-	
+	public static final long TIEMPO_DE_CAMBIO_DE_VELOCIDAD = 150;
 	private VentanaJuego ventana;
 	private RoadFigther modelo;
 	
@@ -16,14 +16,17 @@ public class HiloVelocidad extends Thread {
 	public void run() {
 		
 		while(true) {
-			
+
 			try {
-				sleep(modelo.darCarreteraSeleccionada().darVelocidad());
+					sleep(TIEMPO_DE_CAMBIO_DE_VELOCIDAD);
+					modelo.darCarreteraSeleccionada().velocidad();
+					
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+					 
+					e.printStackTrace();
 			}
-			modelo.darCarreteraSeleccionada().moverCarreteras();
-		}	
+		}
 	}
+	
+	
 }

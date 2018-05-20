@@ -4,7 +4,7 @@ import interfaz.VentanaJuego;
 import modelo.RoadFigther;
 
 public class HiloAutoJugador extends Thread{
-	public static final long TIEMPO_DE_REFRESCO = 9;
+	public static final long TIEMPO_DE_REFRESCO = 6;
 	private VentanaJuego ventana;
 	private RoadFigther modelo;
 	
