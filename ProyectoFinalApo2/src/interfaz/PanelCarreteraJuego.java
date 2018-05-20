@@ -3,8 +3,6 @@ package interfaz;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -12,7 +10,7 @@ import javax.swing.JPanel;
 import modelo.Carretera;
 import modelo.RoadFigther;
 
-public class PanelCarreteraJuego extends JPanel implements KeyListener, MouseListener {
+public class PanelCarreteraJuego extends JPanel implements KeyListener {
 	private VentanaJuego ventanaJuego;
 	private ImageIcon imagenCarretera1;
 	private ImageIcon imagenCarretera2;
@@ -24,10 +22,8 @@ public class PanelCarreteraJuego extends JPanel implements KeyListener, MouseLis
 		imagenCarretera2 = new ImageIcon(ventanaJuego.darVentanaSeleccion().darPrincipal().darModeloJuego().darCarreteraSeleccionada().darTipo());
 		imagenAutoJugador = new ImageIcon(ventanaJuego.darVentanaSeleccion().darPrincipal().darModeloJuego().darCarreteraSeleccionada().darAutomovilSeleccionado().darImagen());
 		
-		
-		this.addMouseListener(this);
 		this.addKeyListener(this);
-	
+		this.setFocusable(true);
 	}
 	
 	public void paintComponent(Graphics g) {
@@ -52,11 +48,18 @@ public class PanelCarreteraJuego extends JPanel implements KeyListener, MouseLis
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_Z) {
 			ventanaJuego.avanzar();
-			System.out.println("Usted ha presionado la tecla: "+e.getKeyText(e.getKeyCode()));
+			
+			
 		}
+		
 		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
-			//ventanaJuego.
+			ventanaJuego.moverDerecha();
 		}
+		
+		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
+			ventanaJuego.moverIzquierda();
+		}
+		
 		
 	}
 
@@ -64,47 +67,26 @@ public class PanelCarreteraJuego extends JPanel implements KeyListener, MouseLis
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode()==KeyEvent.VK_Z) {
 			ventanaJuego.detener();
-			System.out.println("Usted ha presionado la tecla: "+e.getKeyText(e.getKeyCode()));
+		}
+		
+		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
+			ventanaJuego.noMoverDerecha();
+		}
+		
+		if(e.getKeyCode()==KeyEvent.VK_LEFT) {
+			ventanaJuego.noMoverIzquierda();
 		}
 		
 	}
 
 	@Override
-	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
+	public void keyTyped(KeyEvent e){
+		if(e.getKeyCode()==KeyEvent.VK_Z) {
+			ventanaJuego.avanzar();
+		}
+		if(e.getKeyCode()==KeyEvent.VK_RIGHT) {
+			ventanaJuego.noMoverDerecha();
+		}
 		
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		this.requestFocus();
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	public boolean isFocusable(){
-		return true;
 	}
 }

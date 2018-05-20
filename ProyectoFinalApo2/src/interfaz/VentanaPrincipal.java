@@ -107,12 +107,12 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	public int darAnchoAutoMovilSeleccionado() {
-		// TODO Auto-generated method stub
+		
 		return modeloJuego.darAnchoAutoMovilSeleccionado();
 	}
 
 	public int darAlturaAutomovilSeleccionado() {
-		// TODO Auto-generated method stub
+
 		return modeloJuego.darAlturaAutomovilSeleccionado();
 	}
 
@@ -122,8 +122,28 @@ public class VentanaPrincipal extends JFrame {
 	}
 
 	public void detener() {
-		// TODO Auto-generated method stub
+		
 		modeloJuego.detener();
+	}
+
+	public void moverDerecha() {
+		modeloJuego.moverDerecha();
+		
+	}
+
+	public void noMoverDerecha() {
+		modeloJuego.noMoverDerecha();
+		
+	}
+
+	public void moverIzquierda() {
+		modeloJuego.moverIzquierda();
+		
+	}
+
+	public void noMoverIzquierda() {
+		modeloJuego.noMoverIzquierda();
+		
 	}
 
 }

@@ -12,30 +12,36 @@ import java.util.ArrayList;
  */
 public class Carretera implements Serializable {
 	
-	public static final int TAMANHO_PANEL = 435;
+	
+	
+	public static final long VELOCIDAD_MAXIMA_EN_CARRETERA = 1;
+	public static final long AUMENTO_Y_DISMINUCION_DE_VELOCIDAD =1  ;
+	public static final long VELOCIDAD_INICIAL = 15;
+	//435
+	public static final int TAMANHO_PANEL = 431;
 	public static final String CARRETERA_TIPO_CAMPO = "imagenes/campo.png";
 	public static final int POS_Y_INICAL_DE_AUTOMOVIL_CAMPO = 450;
 	public static final int POS_X_INICAL_DE_AUTOMOVIL_CAMPO = 350;
-	public static final int LIMITE_DERECHA_CAMPO = 0;
-	public static final int LIMITE_IZQUIERDA_CAMPO = 0;
+	public static final int LIMITE_DERECHA_CAMPO = 468;
+	public static final int LIMITE_IZQUIERDA_CAMPO = 240;
 	
 	public static final String CARRETERA_TIPO_PUENTE = "imagenes/puente.png";
 	public static final int POS_Y_INICAL_DE_AUTOMOVIL_PUENTE = 450;
 	public static final int POS_X_INICAL_DE_AUTOMOVIL_PUENTE = 255;
-	public static final int LIMITE_DERECHA_PUENTE = 0;
-	public static final int LIMITE_IZQUIERDA_PUENTE = 0;
+	public static final int LIMITE_DERECHA_PUENTE = 370;
+	public static final int LIMITE_IZQUIERDA_PUENTE = 140;
 	
 	public static final String CARRETERA_TIPO_PLAYA = "imagenes/playa.png";
 	public static final int POS_Y_INICAL_DE_AUTOMOVIL_PLAYA = 450;
 	public static final int POS_X_INICAL_DE_AUTOMOVIL_PLAYA = 176;
-	public static final int LIMITE_DERECHA_PLAYA = 0;
-	public static final int LIMITE_IZQUIERDA_PLAYA = 0;
+	public static final int LIMITE_DERECHA_PLAYA = 229;
+	public static final int LIMITE_IZQUIERDA_PLAYA = 136;
 	
 	public static final String CARRETERA_TIPO_CANHON = "imagenes/cañon.png";
 	public static final int POS_Y_INICAL_DE_AUTOMOVIL_CANHON = 450;
 	public static final int POS_X_INICAL_DE_AUTOMOVIL_CANHON = 343;
-	public static final int LIMITE_DERECHA_CANHON = 0;
-	public static final int LIMITE_IZQUIERDA_CANHON = 0;
+	public static final int LIMITE_DERECHA_CANHON = 428;
+	public static final int LIMITE_IZQUIERDA_CANHON = 268;
 	
 	public static final int AUTOMOVIL_ROJO = 1;
 	public static final int AUTOMOVIL_AZUL = 2;
@@ -44,6 +50,7 @@ public class Carretera implements Serializable {
 	public static final int POS_X_IMAGEN = 0;
 	
 	private String tipo;
+	private long velocidadCarretera;
 	private boolean avanza;
 	private int cantidadAutomovilesJugador;
 	private int cantidadAutomovilesCarretera;
@@ -60,36 +67,46 @@ public class Carretera implements Serializable {
 	public Carretera(String pCarretera,int pNumeroCarretera){
 		
 		automoviles = new Automovil[2];
+		velocidadCarretera=VELOCIDAD_INICIAL;
 		
 		if(pCarretera.equals(CARRETERA_TIPO_CAMPO)) {
 			
 			tipo=CARRETERA_TIPO_CAMPO;
 			
-			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0);
-			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
-			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
-			
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CAMPO,POS_Y_INICAL_DE_AUTOMOVIL_CAMPO,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL));
+			limiteCarreteraDerecha=LIMITE_DERECHA_CAMPO;
+		    limiteCarreteraIzquierda=LIMITE_IZQUIERDA_CAMPO;
+		    
 		}else if(pCarretera.equals(CARRETERA_TIPO_PUENTE)) {
 			tipo=CARRETERA_TIPO_PUENTE;
 			
-			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0);
-			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
-			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
-			
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PUENTE,POS_Y_INICAL_DE_AUTOMOVIL_PUENTE,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL));
+			limiteCarreteraDerecha=LIMITE_DERECHA_PUENTE;
+		    limiteCarreteraIzquierda=LIMITE_IZQUIERDA_PUENTE;
+		    
 		}else if(pCarretera.equals(CARRETERA_TIPO_PLAYA)) {
 			tipo=CARRETERA_TIPO_PLAYA;
 			
-			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0);
-			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
-			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_PLAYA,POS_Y_INICAL_DE_AUTOMOVIL_PLAYA,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL));
 			
+			limiteCarreteraDerecha=LIMITE_DERECHA_PLAYA;
+		    limiteCarreteraIzquierda=LIMITE_IZQUIERDA_PLAYA;
+		    
 		}else if(pCarretera.equals(CARRETERA_TIPO_CANHON)) {
 			tipo=CARRETERA_TIPO_CANHON;
 			
-			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0);
-			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
-			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,0));
+			automoviles[0] = new AutomovilJugador(AutomovilJugador.PLACA_AUTO_2,AutomovilJugador.AUTOMOVIL_2,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL);
+			automoviles[0].cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_3,AutomovilJugador.AUTOMOVIL_3,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL));
+			automoviles[0].darAutomovilSiguiente().cambiarAutomovilSiguiente(new AutomovilJugador(AutomovilJugador.PLACA_AUTO_1,AutomovilJugador.AUTOMOVIL_1,POS_X_INICAL_DE_AUTOMOVIL_CANHON,POS_Y_INICAL_DE_AUTOMOVIL_CANHON,AutomovilJugador.ANCHO_IMAGEN_AUTOMOVIL,AutomovilJugador.ALTO_IMAGEN_AUTOMOVIL,VELOCIDAD_INICIAL));
 			
+			limiteCarreteraDerecha=LIMITE_DERECHA_CANHON;
+		    limiteCarreteraIzquierda=LIMITE_IZQUIERDA_CANHON;
 		}
 		
 		
@@ -118,6 +135,10 @@ public class Carretera implements Serializable {
 	
 	public String darTipo() {
 		return tipo;
+	}
+	
+	public long darVelocidad() {
+		return velocidadCarretera;
 	}
 
 	public void cambiarTipo(String pTipo) {
@@ -338,14 +359,64 @@ public class Carretera implements Serializable {
 		
 		return lista;
 	}
-
+	
+	public void moverCarreteras() {
+		if(avanza==true) {
+			moverImagen2();
+			moverImagen1();
+		}else if(velocidadCarretera<VELOCIDAD_INICIAL) {
+			moverImagen2();
+			moverImagen1();
+		}
+		
+		System.out.println(""+velocidadCarretera);
+	}
+	
+	public void velocidad() {
+		
+		
+		if(avanza && velocidadCarretera>VELOCIDAD_MAXIMA_EN_CARRETERA) {
+			velocidadCarretera-=AUMENTO_Y_DISMINUCION_DE_VELOCIDAD;
+		}else if(!avanza && velocidadCarretera<VELOCIDAD_INICIAL) {
+			velocidadCarretera+=AUMENTO_Y_DISMINUCION_DE_VELOCIDAD;
+		}
+		 
+		
+		
+		
+	}
+	
 	public int darAnchoAutoMovilSeleccionado() {
-		// TODO Auto-generated method stub
 		return automovilSeleccionado.darAnchoImagenAutomovil() ;
 	}
 
 	public int darAlturaAutomovilSeleccionado() {
-		// TODO Auto-generated method stub
 		return automovilSeleccionado.darAlturaImagenAutomovil() ;
 	}
+
+	public void moverDerecha() {
+		automovilSeleccionado.seMueveDerecha(limiteCarreteraDerecha);
+	}
+
+	public void noMoverDerecha() {
+		automovilSeleccionado.noSeMueveDerecha();
+		
+	}
+
+	public void moverIzquierda() {
+		automovilSeleccionado.seMueveIzquierda(limiteCarreteraIzquierda);
+		
+	}
+	
+	public void noMoverIzquierda() {
+		automovilSeleccionado.noSeMueveIzquierda();
+		
+	}
+
+	public void moverAuto() {
+		automovilSeleccionado.moverAuto(limiteCarreteraDerecha,limiteCarreteraIzquierda);
+		
+	}
+	
+	
 }

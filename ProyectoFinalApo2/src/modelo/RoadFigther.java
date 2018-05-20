@@ -195,4 +195,24 @@ public class RoadFigther {
 		carreteraSeleccionada.detener();
 		
 	}
+
+	public void moverDerecha() {
+		carreteraSeleccionada.moverDerecha();
+		
+	}
+
+	public void noMoverDerecha() {
+		carreteraSeleccionada.noMoverDerecha();
+		
+	}
+
+	public void moverIzquierda() {
+		carreteraSeleccionada.moverIzquierda();
+		
+	}
+
+	public void noMoverIzquierda() {
+		carreteraSeleccionada.noMoverIzquierda();
+		
+	}
 }

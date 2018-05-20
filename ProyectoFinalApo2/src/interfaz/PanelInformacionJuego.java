@@ -3,6 +3,7 @@ package interfaz;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.DefaultListModel;
@@ -21,7 +22,11 @@ public class PanelInformacionJuego extends JPanel {
 	}
 	
 	public void paintComponent(Graphics g) {
-		
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, getWidth(), getHeight());
+		g.setColor(Color.WHITE);
+		//g.setFont(new Font("System",1,20));
+		g.drawString("JUEGO", 20, 20);
 	}
 	
 

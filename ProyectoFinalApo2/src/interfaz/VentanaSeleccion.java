@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 
 public class VentanaSeleccion extends JFrame {
@@ -20,7 +21,6 @@ public class VentanaSeleccion extends JFrame {
 		this.setTitle("Nueva Partida");
 		this.setLayout(new BorderLayout());
 		this.setBackground(Color.BLACK);
-		this.setDefaultCloseOperation(this.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		
 		panelMapas= new PanelMapas(this);
@@ -70,13 +70,11 @@ public class VentanaSeleccion extends JFrame {
 
 
 	public int darAnchoAutoMovilSeleccionado() {
-		// TODO Auto-generated method stub
 		return principal.darAnchoAutoMovilSeleccionado();
 	}
 
 
 	public int darAlturaAutomovilSeleccionado() {
-		// TODO Auto-generated method stub
 		return principal.darAlturaAutomovilSeleccionado();
 	}
 
@@ -88,8 +86,30 @@ public class VentanaSeleccion extends JFrame {
 
 
 	public void detener() {
-		// TODO Auto-generated method stub
 		principal.detener();
+	}
+
+
+	public void moverDerecha() {
+		principal.moverDerecha();
+		
+	}
+
+
+	public void noMoverDerecha() {
+		principal.noMoverDerecha();		
+	}
+
+
+	public void moverIzquierda() {
+		principal.moverIzquierda();	
+		
+	}
+
+
+	public void noMoverIzquierda() {
+		principal.noMoverIzquierda();		
+		
 	}
 	
 	
