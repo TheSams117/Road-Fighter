@@ -75,7 +75,7 @@ public class PanelCarros extends JPanel implements ActionListener{
 		but_carro2= new JRadioButton();
 		but_carro2.setBackground(Color.BLACK);
 		but_carro2.setForeground(Color.WHITE);
-		but_carro2.setText("Blanco");
+		but_carro2.setText("Azul");
 		but_carro2.setActionCommand(CARRO_2);
 		but_carro2.addActionListener(this);
 		but_carro2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -83,7 +83,7 @@ public class PanelCarros extends JPanel implements ActionListener{
 		but_carro3= new JRadioButton();
 		but_carro3.setForeground(Color.WHITE);
 		but_carro3.setBackground(Color.BLACK);
-		but_carro3.setText("Negro");
+		but_carro3.setText("Amarillo");
 		but_carro3.setActionCommand(CARRO_3);
 		but_carro3.addActionListener(this);
 		but_carro3.setHorizontalAlignment(SwingConstants.CENTER);
