@@ -8,7 +8,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import modelo.JugadorNoEncontradoException;
+import modelo.JugadorYaRegistradoException;
 
 public class PanelBotonesCargarPartida extends JPanel implements ActionListener{
 
@@ -91,15 +95,44 @@ public class PanelBotonesCargarPartida extends JPanel implements ActionListener{
 	String comando= evento.getActionCommand();
 	
 	if(comando.equals(BUT_BUSCAR)) {
+		String jugador = " ";
+		boolean nombreCorrecto = false;
 		
+			jugador=JOptionPane.showInputDialog(ventanaCargarPartida, "Ingrese el nombre del jugador a buscar", "Buscar Partida", JOptionPane.INFORMATION_MESSAGE);
+			if(jugador == null || jugador.equals("") || jugador.charAt(0) == ' ') {
+				
+			}else {
+				try {
+					ventanaCargarPartida.cambiarSeleccionEnLista(ventanaCargarPartida.buscarJugador(jugador));
+				} catch (JugadorNoEncontradoException e) {
+					JOptionPane.showMessageDialog(ventanaCargarPartida, "Jugador no encontrado", "Busqueda", JOptionPane.WARNING_MESSAGE);
+				}	
+			
+			}
 	}
-	else if(comando.equals(this.BUT_CARGAR)) {
+	else if(comando.equals(BUT_CARGAR)) {
+		if(ventanaCargarPartida.darSeleccion()!=null) {
+			try {
+				ventanaCargarPartida.cargarPartida(ventanaCargarPartida.darSeleccion());
+			} catch (JugadorNoEncontradoException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			ventanaCargarPartida.iniciarCarga();
+		}
 		
-	}
-	else if(comando.equals(BUT_ELIMINAR)) {
 		
-	}
-	else if(comando.equals(BUT_VOLVER)) {
+	} else if(comando.equals(BUT_ELIMINAR)) {
+		
+		if(ventanaCargarPartida.darSeleccion()!=null) {
+			
+				ventanaCargarPartida.eliminar(ventanaCargarPartida.darSeleccion());
+				ventanaCargarPartida.refrescarLista();
+				ventanaCargarPartida.guardar();
+		}
+		
+	} else if(comando.equals(BUT_VOLVER)) {
 		ventanaCargarPartida.volver();
 	}
 	

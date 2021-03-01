@@ -8,7 +8,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import modelo.JugadorNoEncontradoException;
+import modelo.PuntajeNoRegistradoException;
 
 public class PanelBotonesPuntajes extends JPanel implements ActionListener{
 	
@@ -90,13 +94,27 @@ public class PanelBotonesPuntajes extends JPanel implements ActionListener{
 	String comando= evento.getActionCommand();
 	
 	if(comando.equals(BUT_BUSCAR_JUGADOR_POR_PUNTAJE)) {
+		int puntaje =0;
 		
-	}
-	else if(comando.equals(this.BUT_BUSCAR_JUGADOR_MAYOR_PUNTAJE)) {
 		
+			
+		
+				try {
+					puntaje=Integer.parseInt(JOptionPane.showInputDialog(ventanaPuntajes, "Ingrese el puntaje del jugador a buscar", "Buscar puntaje", JOptionPane.INFORMATION_MESSAGE));
+					ventanaPuntajes.cambiarSeleccionEnLista(ventanaPuntajes.buscarJugadorPuntaje(puntaje));
+				} catch (PuntajeNoRegistradoException e) {
+					JOptionPane.showMessageDialog(ventanaPuntajes, "Puntaje no registrado", "Busqueda", JOptionPane.WARNING_MESSAGE);
+				} catch (Exception e) {
+					
+				}	
+			
+			
+	
+	}else if(comando.equals(this.BUT_BUSCAR_JUGADOR_MAYOR_PUNTAJE)) {
+		ventanaPuntajes.cambiarSeleccionEnLista(ventanaPuntajes.darJugadorConPuntajeMayor());
 	}
 	else if(comando.equals(this.BUT_BUSCAR_JUGADOR_MENOR_PUNTAJE)) {
-		
+		ventanaPuntajes.cambiarSeleccionEnLista(ventanaPuntajes.darJugadorConPuntajeMenor());
 	}
 	else if(comando.equals(BUT_VOLVER)) {
 		ventanaPuntajes.volver();

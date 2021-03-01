@@ -14,15 +14,15 @@ public class HiloCarretera extends Thread {
 	
 	public void run() {
 		
-		while(true) {
+		while(!modelo.darCarreteraSeleccionada().darPerdio() && !modelo.darCarreteraSeleccionada().darPausa()) {
 			
 			try {
 				sleep(modelo.darCarreteraSeleccionada().darVelocidad());
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			modelo.darCarreteraSeleccionada().moverCarreteras();
-		}	
+			
+		}
 	}
 }

@@ -1,6 +1,8 @@
 package modelo;
 
-public abstract class Automovil {
+import java.io.Serializable;
+
+public abstract class Automovil implements Serializable {
 	
 	public static final int ANCHO_IMAGEN_AUTOMOVIL=40;
 	public static final int ALTO_IMAGEN_AUTOMOVIL=60;

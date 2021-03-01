@@ -37,6 +37,10 @@ public class VentanaHistorial extends JFrame {
 		
 	}
 	
+	public PanelListaHistorial darListaHistorial() {
+		return listaHistorial;
+		
+	}
 	
 	
 	

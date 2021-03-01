@@ -8,58 +8,54 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-public class PanelListaPuntajes extends JPanel {
+import modelo.Jugador;
+
+public class PanelListaPuntajes extends JPanel implements ListSelectionListener {
 
 	
 	
 	private JList listaPuntajes;
-	private DefaultListModel modeloLista;
 	private JScrollPane scroll;
+	private VentanaPuntajes ventanaPuntajes;
 	
-	
-	public PanelListaPuntajes() {
+	public PanelListaPuntajes(VentanaPuntajes ventana) {
+		ventanaPuntajes= ventana;
 		this.setPreferredSize(new Dimension(400,300));
 		this.setLayout(new BorderLayout());		
-		modeloLista=new DefaultListModel();
-		listaPuntajes= new JList(modeloLista);
+		listaPuntajes= new JList();
 		scroll=new JScrollPane(listaPuntajes);
 		this.add(scroll,BorderLayout.CENTER);
 		this.setBackground(Color.BLACK);
+		listaPuntajes.addListSelectionListener(this);
 		listaPuntajes.setBackground(Color.BLACK);
 		listaPuntajes.setForeground(Color.WHITE);
 		listaPuntajes.setBorder(null);
-		for (int i = 0; i < 50; i++) {
-			modeloLista.addElement("Sergio");
-		}
 		scroll.setBorder(null);
 	}
 	
-	public void borrarLista() {
-		modeloLista.removeAllElements();
+	
+	
+	public void refrescarLista() {
+		listaPuntajes.setListData(ventanaPuntajes.darJugadoresOrdenadosPorPuntaje().toArray());
 	}
 	
 	
-	public void agregarElemento(String elemento) {
-		modeloLista.addElement(elemento);
+	public Jugador darSeleccionado() {
+		return (Jugador) listaPuntajes.getSelectedValue();
 	}
-	
-	
-	public void refrescarLista(String[] elementos) {
-		for (int i = 0; i < elementos.length; i++) {
-			agregarElemento(elementos[i]);
-		}
+
+	public void cambiarSeleccion(Jugador pJugador) {
+		 listaPuntajes.setSelectedValue(pJugador, true);
 	}
-	
-	
-	public Object darSeleccionado() {
-		return listaPuntajes.getSelectedValue();
+
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
-	
-	
-	
-	
-	
-	
-	
+
 }

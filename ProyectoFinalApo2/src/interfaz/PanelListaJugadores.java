@@ -8,52 +8,56 @@ import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-public class PanelListaJugadores extends JPanel{
+import modelo.Jugador;
+
+public class PanelListaJugadores extends JPanel implements ListSelectionListener{
 
 	
 	
 	private JList listaJugadores;
-	private DefaultListModel modeloLista;
 	private JScrollPane scroll;
+	private VentanaCargarPartida ventanaCargarPartida;
 	
 	
-	public PanelListaJugadores() {
+	public PanelListaJugadores(VentanaCargarPartida ventana) {
 		this.setPreferredSize(new Dimension(400,300));
-		this.setLayout(new BorderLayout());		
-		modeloLista=new DefaultListModel();
-		listaJugadores= new JList(modeloLista);
+		this.setLayout(new BorderLayout());
+		ventanaCargarPartida=ventana;
+		listaJugadores= new JList();
 		scroll=new JScrollPane(listaJugadores);
+		listaJugadores.addListSelectionListener(this);
 		this.add(scroll,BorderLayout.CENTER);
 		this.setBackground(Color.BLACK);
 		listaJugadores.setBackground(Color.BLACK);
 		listaJugadores.setForeground(Color.WHITE);
 		listaJugadores.setBorder(null);
-		for (int i = 0; i < 50; i++) {
-			modeloLista.addElement("Sergio");
-		}
 		scroll.setBorder(null);
 	}
 	
-	public void borrarLista() {
-		modeloLista.removeAllElements();
+	
+
+	public void refrescarLista() {
+		listaJugadores.setListData(ventanaCargarPartida.darJugadoresOrdenadosPorNombre().toArray());
 	}
 	
-	
-	public void agregarElemento(String elemento) {
-		modeloLista.addElement(elemento);
+	public Jugador darSeleccionado() {
+		return (Jugador)listaJugadores.getSelectedValue();
 	}
-	
-	
-	public void refrescarLista(String[] elementos) {
-		for (int i = 0; i < elementos.length; i++) {
-			agregarElemento(elementos[i]);
-		}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
-	
-	
-	public Object darSeleccionado() {
-		return listaJugadores.getSelectedValue();
+
+
+
+	public void cambiarSeleccion(Jugador pJugador) {
+		listaJugadores.setSelectedValue(pJugador, true);
+		
 	}
 	
 	

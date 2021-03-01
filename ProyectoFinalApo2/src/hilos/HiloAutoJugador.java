@@ -4,7 +4,7 @@ import interfaz.VentanaJuego;
 import modelo.RoadFigther;
 
 public class HiloAutoJugador extends Thread{
-	public static final long TIEMPO_DE_REFRESCO = 6;
+	public static final long TIEMPO_DE_REFRESCO =5;
 	private VentanaJuego ventana;
 	private RoadFigther modelo;
 	
@@ -14,17 +14,36 @@ public class HiloAutoJugador extends Thread{
 	}
 	
 	public void run() {
-		
-		while(true) {
+		while(!modelo.darCarreteraSeleccionada().darPerdio() && !modelo.darCarreteraSeleccionada().darPausa()) {
 			
 			modelo.darCarreteraSeleccionada().moverAuto();
+			modelo.darCarreteraSeleccionada().seEstrelloContraLaBarrera();
+			if(!modelo.darCarreteraSeleccionada().darPerdio()) {
+				modelo.darCarreteraSeleccionada().seEstrelloContraUnAutomovil();
+			}
+			
+			
 			try {
 				sleep(TIEMPO_DE_REFRESCO);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
+			}
+			
+			if(modelo.darCarreteraSeleccionada().darPerdio()) {
+				try {
+					sleep(3300);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				modelo.darCarreteraSeleccionada().cambiarFinalizacionDeLaPartida(true);
+				
 			}
 			ventana.refrescar();
 		}
+		
+		if(modelo.darCarreteraSeleccionada().darPerdio()) {
+			ventana.guardarJugador();
+		}
+		
 	}
 }
